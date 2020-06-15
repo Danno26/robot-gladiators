@@ -128,33 +128,42 @@ if (playerHealth > 0 && i < enemyNames.length - 1) {
         );
         // use switch to carry out action
 switch (shopOptionPrompt) {
+  case "REFILL": // new case
   case "refill":
-  if (playerMoney >= 7) {
-    window.alert("Refilling player's health by 20 for 7 dollars.");
+    if (playerMoney >= 7) {
+      window.alert("Refilling player's health by 20 for 7 dollars.");
 
-    // increase health and decrease money
-    playerHealth = playerHealth + 20;
-    playerMoney = playerMoney - 7;
-  }
-  else {
-    window.alert("You don't have enough money!");
-  }
+      playerHealth = playerHealth + 20;
+      playerMoney = playerMoney - 7;
+    }
+    else {
+      window.alert("You don't have enough money!");
+    }
 
-  break;
+    break;
 
-  case "upgrade":
-  if (playerMoney >= 7) {
-    window.alert("Upgrading player's attack by 6 for 7 dollars.");
+    case "UPGRADE": // new case
+    case "upgrade":
+      if (playerMoney >= 7) {
+        window.alert("Upgrading player's attack by 6 for 7 dollars.");
+  
+        playerAttack = playerAttack + 6;
+        playerMoney = playerMoney - 7;
+      }
+      else {
+        window.alert("You don't have enough money!");
+          break;
+      }
+  case "LEAVE": // new case
+  case "leave":
+    window.alert("Leaving the store.");
+    break;
+  default:
+    window.alert("You did not pick a valid option. Try again.");
+    shop();
+    break;
+}
 
-   // increase attack and decrease money
-    playerAttack = playerAttack + 6;
-    playerMoney = playerMoney - 7;
-  }
-  else {
-    window.alert("You don't have enough money!");
-  }
-
-  break;
   default:
     window.alert("You did not pick a valid option. Try again.");
 
